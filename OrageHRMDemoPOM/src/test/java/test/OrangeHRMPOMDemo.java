@@ -4,7 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import page.DashboardPage;
 import page.HomePage;
+import page.MaintenancePage;
 
 public class OrangeHRMPOMDemo {
 
@@ -23,8 +25,13 @@ public class OrangeHRMPOMDemo {
 		HomePage homePage=new HomePage();
 		homePage.loginFunctionality(driver);
 		
-		Thread.sleep(3000);
+		DashboardPage dashboardPage=new DashboardPage();
+		dashboardPage.dashboardFlow(driver);
 		
+		MaintenancePage maintenancePage=new MaintenancePage();
+		maintenancePage.maintenanceFlow(driver);
+		
+		Thread.sleep(3000);
 		driver.close();
 	}
 

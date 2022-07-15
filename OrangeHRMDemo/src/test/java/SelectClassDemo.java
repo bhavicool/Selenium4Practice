@@ -1,8 +1,13 @@
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -24,7 +29,12 @@ public class SelectClassDemo {
 		WebElement createNewAccount = driver.findElement(By.xpath("//a[text()='Create New Account']"));
 		createNewAccount.click();
 		
-		Thread.sleep(2000);
+		//Impicit Wait
+		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		
+		//Explicit Wait
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("birthday_month")));
 		
 		Select dayElement=new Select(driver.findElement(By.id("day")));
 		dayElement.selectByValue("1");
@@ -37,6 +47,15 @@ public class SelectClassDemo {
 		
 		//Select gender as male
 		driver.findElement(By.xpath("//input[@value='2']")).click();
+		
+		/*//refreshing web page
+		driver.navigate().refresh();
+		
+		//moving back on the web page
+		driver.navigate().back();
+		
+		//moving forward on the web page
+		driver.navigate().forward();*/
 		
 		Thread.sleep(4000);
 		
