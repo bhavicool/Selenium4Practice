@@ -14,7 +14,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class FlipkartWSeleniumGrid {
+public class FlipkartWSeleniumGridEdge {
 
 	
 	static DesiredCapabilities caps = new DesiredCapabilities();
@@ -23,7 +23,7 @@ public class FlipkartWSeleniumGrid {
 	public static void main(String[] args) throws InterruptedException, MalformedURLException {
 		// TODO Auto-generated method stub
 		String Hub = "http://localhost:4444/wd/hub";
-		caps.setBrowserName("chrome");
+		caps.setBrowserName("edge");
 		
 		//Pointing to Hub which is working on a local system
 		driver = new RemoteWebDriver(new URL(Hub), caps);
